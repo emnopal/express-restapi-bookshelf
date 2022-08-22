@@ -29,7 +29,6 @@ export const addBookHandler = async (request, response) => {
             message: 'Success added book',
         });
     } catch (error) {
-        console.log(error);
         return failHandler({
             response: response,
             data: {
