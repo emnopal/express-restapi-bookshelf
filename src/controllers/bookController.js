@@ -22,7 +22,7 @@ export const addBookHandler = async (request, response) => {
         const result = await book.save();
 
         return successHandler({
-            response: response,
+            response,
             data: {
                 success: result,
             },
@@ -30,7 +30,7 @@ export const addBookHandler = async (request, response) => {
         });
     } catch (error) {
         return failHandler({
-            response: response,
+            response,
             data: {
                 error: error,
             },
@@ -61,7 +61,7 @@ export const getBookHandler = async (request, response) => {
             id ? `Success getting book` : 'Success get all book';
 
         return successHandler({
-            response: response,
+            response,
             data: {
                 book: book,
             },
@@ -72,7 +72,7 @@ export const getBookHandler = async (request, response) => {
             id ? `Fail getting book ${id}` : 'Fail get all book';
 
         return failHandler({
-            response: response,
+            response,
             data: {
                 error: error,
             },
@@ -96,7 +96,7 @@ export const editBookHandler = async (request, response) => {
             id, updatedData, isNew).exec();
 
         return successHandler({
-            response: response,
+            response,
             data: {
                 result: result,
             },
@@ -104,7 +104,7 @@ export const editBookHandler = async (request, response) => {
         });
     } catch (error) {
         return failHandler({
-            response: response,
+            response,
             data: {
                 error: error,
             },
@@ -120,7 +120,7 @@ export const deleteBookHandler = async (request, response) => {
     try {
         const result = await BookModel.findByIdAndDelete(id).exec();
         return successHandler({
-            response: response,
+            response,
             data: {
                 result: result,
             },
@@ -128,7 +128,7 @@ export const deleteBookHandler = async (request, response) => {
         });
     } catch (error) {
         return failHandler({
-            response: response,
+            response,
             data: {
                 error: error,
             },
